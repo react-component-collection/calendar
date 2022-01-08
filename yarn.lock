@@ -5829,9 +5829,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-calendar@workspace:.":
+"rcc-calendar@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-calendar@workspace:."
+  resolution: "rcc-calendar@workspace:."
   dependencies:
     "@babel/cli": ^7.15.0
     "@babel/core": ^7.15.0
