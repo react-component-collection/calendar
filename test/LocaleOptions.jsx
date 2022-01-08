@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function LocaleOptions({
   locale,
@@ -8,7 +8,7 @@ export default function LocaleOptions({
   function onChange(event) {
     let { value: nextLocale } = event.target;
 
-    if (nextLocale === 'null') {
+    if (nextLocale === "null") {
       nextLocale = null;
     }
 
@@ -48,7 +48,7 @@ export default function LocaleOptions({
       </div>
       <div>
         <input
-          checked={locale === 'en-US'}
+          checked={locale === "en-US"}
           id="localeEnUS"
           name="locale"
           onChange={onChange}
@@ -61,7 +61,7 @@ export default function LocaleOptions({
       </div>
       <div>
         <input
-          checked={locale === 'fr-FR'}
+          checked={locale === "fr-FR"}
           id="localeFrFR"
           name="locale"
           onChange={onChange}
@@ -74,7 +74,7 @@ export default function LocaleOptions({
       </div>
       <div>
         <input
-          checked={locale === 'ar-EG'}
+          checked={locale === "ar-EG"}
           id="localeArEG"
           name="locale"
           onChange={onChange}
@@ -100,7 +100,7 @@ export default function LocaleOptions({
         />
         &nbsp;
         <button
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           type="submit"
         >
           Set locale

@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { getISOLocalDateTime } from '@wojtekmaj/date-utils';
+import React from "react";
+import PropTypes from "prop-types";
+import { getISOLocalDateTime } from "@wojtekmaj/date-utils";
 
 export default function DateBonduariesOptions({
   maxDate,
@@ -34,7 +34,7 @@ export default function DateBonduariesOptions({
           id="minDatetime"
           onChange={onMinChange}
           type="datetime-local"
-          value={minDate ? getISOLocalDateTime(minDate) : ''}
+          value={minDate ? getISOLocalDateTime(minDate) : ""}
         />
         &nbsp;
         <button
@@ -52,7 +52,7 @@ export default function DateBonduariesOptions({
           id="maxDatetime"
           onChange={onMaxChange}
           type="datetime-local"
-          value={maxDate ? getISOLocalDateTime(maxDate) : ''}
+          value={maxDate ? getISOLocalDateTime(maxDate) : ""}
         />
         &nbsp;
         <button

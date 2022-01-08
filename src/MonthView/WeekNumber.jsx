@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const className = 'react-calendar__tile';
+const className = "react-calendar__tile";
 
 export default function WeekNumber({
   date,

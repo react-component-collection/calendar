@@ -1,10 +1,10 @@
-import React, { StrictMode } from 'react';
-import { render } from 'react-dom';
-import Test from './Test';
+import React, { StrictMode } from "react";
+import { render } from "react-dom";
+import Test from "./Test";
 
 render(
   <StrictMode>
     <Test />
   </StrictMode>,
-  document.getElementById('react-root'),
+  document.getElementById("react-root"),
 );

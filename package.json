@@ -25,8 +25,9 @@
     "clean": "rimraf dist",
     "copy-styles": "node ./copy-styles.js",
     "jest": "jest",
-    "lint": "eslint sample/ src/ test/ --ext .jsx,.js",
+    "lint": "eslint sample/ src/ test/ --ext .jsx,.js --fix",
     "prepack": "yarn clean && yarn build",
+    "publish": "yarn prepack && npm publish",
     "test": "yarn lint && yarn jest"
   },
   "keywords": [

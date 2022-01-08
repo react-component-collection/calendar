@@ -1,14 +1,14 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React from "react";
+import { mount } from "enzyme";
 
-import WeekNumbers from './WeekNumbers';
+import WeekNumbers from "./WeekNumbers";
 
-describe('WeekNumbers', () => {
+describe("WeekNumbers", () => {
   const defaultProps = {
     activeStartDate: new Date(2017, 0, 1),
   };
 
-  it('renders proper weekNumbers for a year that starts in week 1 (ISO 8601)', () => {
+  it("renders proper weekNumbers for a year that starts in week 1 (ISO 8601)", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -17,13 +17,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const weekNumbers = component.find('WeekNumber');
+    const weekNumbers = component.find("WeekNumber");
 
     expect(weekNumbers).toHaveLength(5);
-    expect(weekNumbers.first().text()).toBe('1');
+    expect(weekNumbers.first().text()).toBe("1");
   });
 
-  it('renders proper weekNumbers for a year that starts on week 52 (ISO 8601)', () => {
+  it("renders proper weekNumbers for a year that starts on week 52 (ISO 8601)", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -32,13 +32,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const weekNumbers = component.find('WeekNumber');
+    const weekNumbers = component.find("WeekNumber");
 
     expect(weekNumbers).toHaveLength(6);
-    expect(weekNumbers.first().text()).toBe('52');
+    expect(weekNumbers.first().text()).toBe("52");
   });
 
-  it('renders proper weekNumbers for a year that starts on week 53 (ISO 8601)', () => {
+  it("renders proper weekNumbers for a year that starts on week 53 (ISO 8601)", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -47,13 +47,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const weekNumbers = component.find('WeekNumber');
+    const weekNumbers = component.find("WeekNumber");
 
     expect(weekNumbers).toHaveLength(5);
-    expect(weekNumbers.first().text()).toBe('53');
+    expect(weekNumbers.first().text()).toBe("53");
   });
 
-  it('renders proper weekNumbers for a year that starts in week 1 (US)', () => {
+  it("renders proper weekNumbers for a year that starts in week 1 (US)", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -62,13 +62,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const weekNumbers = component.find('WeekNumber');
+    const weekNumbers = component.find("WeekNumber");
 
     expect(weekNumbers).toHaveLength(5);
-    expect(weekNumbers.first().text()).toBe('1');
+    expect(weekNumbers.first().text()).toBe("1");
   });
 
-  it('renders proper weekNumbers given showFixedNumberOfWeeks flag', () => {
+  it("renders proper weekNumbers given showFixedNumberOfWeeks flag", () => {
     // Same config as in first test which gives 5 weeks, except for the flag
     const component = mount(
       <WeekNumbers
@@ -79,13 +79,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const weekNumbers = component.find('WeekNumber');
+    const weekNumbers = component.find("WeekNumber");
 
     expect(weekNumbers).toHaveLength(6);
-    expect(weekNumbers.first().text()).toBe('1');
+    expect(weekNumbers.first().text()).toBe("1");
   });
 
-  it('renders static divs as children when not given onClickWeekNumber', () => {
+  it("renders static divs as children when not given onClickWeekNumber", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -93,12 +93,12 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const children = component.find('div.react-calendar__tile');
+    const children = component.find("div.react-calendar__tile");
 
     expect(children).toHaveLength(6);
   });
 
-  it('renders buttons as children when given onClickWeekNumber', () => {
+  it("renders buttons as children when given onClickWeekNumber", () => {
     const component = mount(
       <WeekNumbers
         {...defaultProps}
@@ -107,12 +107,12 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const children = component.find('button.react-calendar__tile');
+    const children = component.find("button.react-calendar__tile");
 
     expect(children).toHaveLength(6);
   });
 
-  it('calls onClickWeekNumber function with proper arguments when clicked a week number (ISO 8601)', () => {
+  it("calls onClickWeekNumber function with proper arguments when clicked a week number (ISO 8601)", () => {
     const onClickWeekNumber = jest.fn();
     const component = mount(
       <WeekNumbers
@@ -122,13 +122,13 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const children = component.find('button.react-calendar__tile');
+    const children = component.find("button.react-calendar__tile");
 
-    children.first().simulate('click');
+    children.first().simulate("click");
     expect(onClickWeekNumber).toHaveBeenCalledWith(52, new Date(2016, 11, 26), expect.any(Object));
   });
 
-  it('calls onClickWeekNumber function with proper arguments when clicked a week number (US)', () => {
+  it("calls onClickWeekNumber function with proper arguments when clicked a week number (US)", () => {
     const onClickWeekNumber = jest.fn();
     const component = mount(
       <WeekNumbers
@@ -138,9 +138,9 @@ describe('WeekNumbers', () => {
       />,
     );
 
-    const children = component.find('button.react-calendar__tile');
+    const children = component.find("button.react-calendar__tile");
 
-    children.first().simulate('click');
+    children.first().simulate("click");
     expect(onClickWeekNumber).toHaveBeenCalledWith(1, new Date(2017, 0, 1), expect.any(Object));
   });
 });

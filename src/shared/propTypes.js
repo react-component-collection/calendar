@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { CALENDAR_TYPES } from './const';
+import { CALENDAR_TYPES } from "./const";
 
 const calendarTypes = Object.values(CALENDAR_TYPES);
-const allViews = ['century', 'decade', 'year', 'month'];
+const allViews = ["century", "decade", "year", "month"];
 
 export const isCalendarType = PropTypes.oneOf(calendarTypes);
 
@@ -74,7 +74,7 @@ export const isView = (props, propName, componentName) => {
   const allowedViews = views || allViews;
 
   if (view !== undefined && allowedViews.indexOf(view) === -1) {
-    return new Error(`Invalid prop \`${propName}\` of value \`${view}\` supplied to \`${componentName}\`, expected one of [${allowedViews.map((a) => `"${a}"`).join(', ')}].`);
+    return new Error(`Invalid prop \`${propName}\` of value \`${view}\` supplied to \`${componentName}\`, expected one of [${allowedViews.map((a) => `"${a}"`).join(", ")}].`);
   }
 
   // Everything is fine

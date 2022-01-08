@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import Navigation from './Navigation';
+import Navigation from "./Navigation";
 
-const allViews = ['century', 'decade', 'year', 'month'];
+const allViews = ["century", "decade", "year", "month"];
 
-describe('Navigation', () => {
+describe("Navigation", () => {
   const defaultProps = {
     activeStartDate: new Date(2017, 0, 1),
     drillUp: () => {},
@@ -13,7 +13,7 @@ describe('Navigation', () => {
     views: allViews,
   };
 
-  it('renders prev2, prev, drill up, next and next2 buttons', () => {
+  it("renders prev2, prev, drill up, next and next2 buttons", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -26,14 +26,14 @@ describe('Navigation', () => {
     const [prev2, prev, drillUp, next, next2] = children;
 
     expect(children).toHaveLength(5);
-    expect(prev2.type).toBe('button');
-    expect(prev.type).toBe('button');
-    expect(drillUp.type).toBe('button');
-    expect(next.type).toBe('button');
-    expect(next2.type).toBe('button');
+    expect(prev2.type).toBe("button");
+    expect(prev.type).toBe("button");
+    expect(drillUp.type).toBe("button");
+    expect(next.type).toBe("button");
+    expect(next2.type).toBe("button");
   });
 
-  it('renders prev, drill up, next and buttons only for century view', () => {
+  it("renders prev, drill up, next and buttons only for century view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -46,12 +46,12 @@ describe('Navigation', () => {
     const [prev, drillUp, next] = children;
 
     expect(children).toHaveLength(3);
-    expect(prev.type).toBe('button');
-    expect(drillUp.type).toBe('button');
-    expect(next.type).toBe('button');
+    expect(prev.type).toBe("button");
+    expect(drillUp.type).toBe("button");
+    expect(next.type).toBe("button");
   });
 
-  it('displays proper title for month view', () => {
+  it("displays proper title for month view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -59,12 +59,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
-    expect(drillUp.text()).toBe('January 2017');
+    expect(drillUp.text()).toBe("January 2017");
   });
 
-  it('displays proper title for year view', () => {
+  it("displays proper title for year view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -72,12 +72,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
-    expect(drillUp.text()).toBe('2017');
+    expect(drillUp.text()).toBe("2017");
   });
 
-  it('displays proper title for decade view', () => {
+  it("displays proper title for decade view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -85,12 +85,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
-    expect(drillUp.text()).toBe('2011 – 2020');
+    expect(drillUp.text()).toBe("2011 – 2020");
   });
 
-  it('displays proper title for century view', () => {
+  it("displays proper title for century view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -98,12 +98,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
-    expect(drillUp.text()).toBe('2001 – 2100');
+    expect(drillUp.text()).toBe("2001 – 2100");
   });
 
-  it('displays proper title for month view given showDouble flags is set to true', () => {
+  it("displays proper title for month view given showDouble flags is set to true", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -112,12 +112,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
-    expect(drillUp.text()).toBe('January 2017 – February 2017');
+    expect(drillUp.text()).toBe("January 2017 – February 2017");
   });
 
-  it('displays proper user-defined labels on prev2, prev, next and next2 buttons', () => {
+  it("displays proper user-defined labels on prev2, prev, next and next2 buttons", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -131,13 +131,13 @@ describe('Navigation', () => {
 
     const [prev2, prev, , next, next2] = component.children();
 
-    expect(prev2.props.children).toBe('prev2Label');
-    expect(prev.props.children).toBe('prevLabel');
-    expect(next.props.children).toBe('nextLabel');
-    expect(next2.props.children).toBe('next2Label');
+    expect(prev2.props.children).toBe("prev2Label");
+    expect(prev.props.children).toBe("prevLabel");
+    expect(next.props.children).toBe("nextLabel");
+    expect(next2.props.children).toBe("next2Label");
   });
 
-  it('uses proper user-defined ARIA live on navigation button', () => {
+  it("uses proper user-defined ARIA live on navigation button", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -148,10 +148,10 @@ describe('Navigation', () => {
 
     const [, , navigation] = component.children();
 
-    expect(navigation.props['aria-live']).toBe('polite');
+    expect(navigation.props["aria-live"]).toBe("polite");
   });
 
-  it('displays proper user-defined ARIA labels on prev2, prev, navigation, next and next2 buttons', () => {
+  it("displays proper user-defined ARIA labels on prev2, prev, navigation, next and next2 buttons", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -166,14 +166,14 @@ describe('Navigation', () => {
 
     const [prev2, prev, navigation, next, next2] = component.children();
 
-    expect(prev2.props['aria-label']).toBe('prev2AriaLabel');
-    expect(prev.props['aria-label']).toBe('prevAriaLabel');
-    expect(navigation.props['aria-label']).toBe('navigationAriaLabel');
-    expect(next.props['aria-label']).toBe('nextAriaLabel');
-    expect(next2.props['aria-label']).toBe('next2AriaLabel');
+    expect(prev2.props["aria-label"]).toBe("prev2AriaLabel");
+    expect(prev.props["aria-label"]).toBe("prevAriaLabel");
+    expect(navigation.props["aria-label"]).toBe("navigationAriaLabel");
+    expect(next.props["aria-label"]).toBe("nextAriaLabel");
+    expect(next2.props["aria-label"]).toBe("next2AriaLabel");
   });
 
-  it('calls drillUp function on drill up button click', () => {
+  it("calls drillUp function on drill up button click", () => {
     const drillUpFn = jest.fn();
     const component = shallow(
       <Navigation
@@ -183,14 +183,14 @@ describe('Navigation', () => {
       />,
     );
 
-    const button = component.find('button.react-calendar__navigation__label');
+    const button = component.find("button.react-calendar__navigation__label");
 
-    button.simulate('click');
+    button.simulate("click");
 
     expect(drillUpFn).toHaveBeenCalledTimes(1);
   });
 
-  it('calls setActiveStartDate on prev2, prev, next and next2 buttons click', () => {
+  it("calls setActiveStartDate on prev2, prev, next and next2 buttons click", () => {
     const setActiveStartDateFn = jest.fn();
     const component = shallow(
       <Navigation
@@ -200,17 +200,17 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const prev2 = arrows.at(0);
     const prev = arrows.at(1);
     const next = arrows.at(2);
     const next2 = arrows.at(3);
 
-    prev2.simulate('click');
-    prev.simulate('click');
-    next.simulate('click');
-    next2.simulate('click');
+    prev2.simulate("click");
+    prev.simulate("click");
+    next.simulate("click");
+    next2.simulate("click");
 
     expect(setActiveStartDateFn).toHaveBeenCalledTimes(4);
   });
@@ -225,38 +225,38 @@ describe('Navigation', () => {
     />,
   );
 
-  const monthViewArrows = monthViewComponent.find('button.react-calendar__navigation__arrow');
+  const monthViewArrows = monthViewComponent.find("button.react-calendar__navigation__arrow");
 
-  it('jumps 12 months back on prev2 button click for month view', () => {
+  it("jumps 12 months back on prev2 button click for month view", () => {
     const prev2 = monthViewArrows.at(0);
 
-    prev2.simulate('click');
+    prev2.simulate("click");
 
-    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 0, 1), 'prev2');
+    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 0, 1), "prev2");
   });
 
-  it('jumps 1 month back on prev button click for month view', () => {
+  it("jumps 1 month back on prev button click for month view", () => {
     const prev = monthViewArrows.at(1);
 
-    prev.simulate('click');
+    prev.simulate("click");
 
-    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 11, 1), 'prev');
+    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 11, 1), "prev");
   });
 
-  it('jumps 1 month forward on next button click for month view', () => {
+  it("jumps 1 month forward on next button click for month view", () => {
     const next = monthViewArrows.at(2);
 
-    next.simulate('click');
+    next.simulate("click");
 
-    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2017, 1, 1), 'next');
+    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2017, 1, 1), "next");
   });
 
-  it('jumps 12 months forward on next2 button click for month view', () => {
+  it("jumps 12 months forward on next2 button click for month view", () => {
     const next2 = monthViewArrows.at(3);
 
-    next2.simulate('click');
+    next2.simulate("click");
 
-    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2018, 0, 1), 'next2');
+    expect(monthSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2018, 0, 1), "next2");
   });
 
   const yearSetActiveStartDateFn = jest.fn();
@@ -269,38 +269,38 @@ describe('Navigation', () => {
     />,
   );
 
-  const yearViewArrows = yearViewComponent.find('button.react-calendar__navigation__arrow');
+  const yearViewArrows = yearViewComponent.find("button.react-calendar__navigation__arrow");
 
-  it('jumps 10 years back on prev2 button click for year view', () => {
+  it("jumps 10 years back on prev2 button click for year view", () => {
     const prev2 = yearViewArrows.at(0);
 
-    prev2.simulate('click');
+    prev2.simulate("click");
 
-    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2007, 0, 1), 'prev2');
+    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2007, 0, 1), "prev2");
   });
 
-  it('jumps 1 year back on prev button click for year view', () => {
+  it("jumps 1 year back on prev button click for year view", () => {
     const prev2 = yearViewArrows.at(1);
 
-    prev2.simulate('click');
+    prev2.simulate("click");
 
-    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 0, 1), 'prev');
+    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2016, 0, 1), "prev");
   });
 
-  it('jumps 1 year forward on next button click for year view', () => {
+  it("jumps 1 year forward on next button click for year view", () => {
     const next = yearViewArrows.at(2);
 
-    next.simulate('click');
+    next.simulate("click");
 
-    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2018, 0, 1), 'next');
+    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2018, 0, 1), "next");
   });
 
-  it('jumps 10 years forward on next2 button click for year view', () => {
+  it("jumps 10 years forward on next2 button click for year view", () => {
     const next2 = yearViewArrows.at(3);
 
-    next2.simulate('click');
+    next2.simulate("click");
 
-    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2027, 0, 1), 'next2');
+    expect(yearSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2027, 0, 1), "next2");
   });
 
   const decadeSetActiveStartDateFn = jest.fn();
@@ -313,38 +313,38 @@ describe('Navigation', () => {
     />,
   );
 
-  const decadeViewArrows = decadeViewComponent.find('button.react-calendar__navigation__arrow');
+  const decadeViewArrows = decadeViewComponent.find("button.react-calendar__navigation__arrow");
 
-  it('jumps 10 decades back on prev2 button click for decade view', () => {
+  it("jumps 10 decades back on prev2 button click for decade view", () => {
     const prev2 = decadeViewArrows.at(0);
 
-    prev2.simulate('click');
+    prev2.simulate("click");
 
-    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(1911, 0, 1), 'prev2');
+    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(1911, 0, 1), "prev2");
   });
 
-  it('jumps 1 decade back on prev button click for decade view', () => {
+  it("jumps 1 decade back on prev button click for decade view", () => {
     const prev = decadeViewArrows.at(1);
 
-    prev.simulate('click');
+    prev.simulate("click");
 
-    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2001, 0, 1), 'prev');
+    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2001, 0, 1), "prev");
   });
 
-  it('jumps 1 decade forward on next button click for decade view', () => {
+  it("jumps 1 decade forward on next button click for decade view", () => {
     const next = decadeViewArrows.at(2);
 
-    next.simulate('click');
+    next.simulate("click");
 
-    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2021, 0, 1), 'next');
+    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2021, 0, 1), "next");
   });
 
-  it('jumps 10 decades forward on next2 button click for decade view', () => {
+  it("jumps 10 decades forward on next2 button click for decade view", () => {
     const next2 = decadeViewArrows.at(3);
 
-    next2.simulate('click');
+    next2.simulate("click");
 
-    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2111, 0, 1), 'next2');
+    expect(decadeSetActiveStartDateFn).toHaveBeenCalledWith(new Date(2111, 0, 1), "next2");
   });
 
   const centurySetActiveStartDateFn = jest.fn();
@@ -357,25 +357,25 @@ describe('Navigation', () => {
     />,
   );
 
-  const centuryViewArrows = centuryViewComponent.find('button.react-calendar__navigation__arrow');
+  const centuryViewArrows = centuryViewComponent.find("button.react-calendar__navigation__arrow");
 
-  it('jumps 1 century back on prev button click for century view', () => {
+  it("jumps 1 century back on prev button click for century view", () => {
     const prev = centuryViewArrows.at(0);
 
-    prev.simulate('click');
+    prev.simulate("click");
 
-    expect(centurySetActiveStartDateFn).toHaveBeenCalledWith(new Date(1901, 0, 1), 'prev');
+    expect(centurySetActiveStartDateFn).toHaveBeenCalledWith(new Date(1901, 0, 1), "prev");
   });
 
-  it('jumps 1 century forward on next button click for century view', () => {
+  it("jumps 1 century forward on next button click for century view", () => {
     const next = centuryViewArrows.at(1);
 
-    next.simulate('click');
+    next.simulate("click");
 
-    expect(centurySetActiveStartDateFn).toHaveBeenCalledWith(new Date(2101, 0, 1), 'next');
+    expect(centurySetActiveStartDateFn).toHaveBeenCalledWith(new Date(2101, 0, 1), "next");
   });
 
-  it('correctly marks drillUp button as disabled when already on top allowed view', () => {
+  it("correctly marks drillUp button as disabled when already on top allowed view", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -383,12 +383,12 @@ describe('Navigation', () => {
       />,
     );
 
-    const button = component.find('button.react-calendar__navigation__label');
+    const button = component.find("button.react-calendar__navigation__label");
 
-    expect(button.prop('disabled')).toBeTruthy();
+    expect(button.prop("disabled")).toBeTruthy();
   });
 
-  it('disallows navigating before minDate', () => {
+  it("disallows navigating before minDate", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -397,16 +397,16 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const prev2 = arrows.at(0);
     const prev = arrows.at(1);
 
-    expect(prev2.prop('disabled')).toBeTruthy();
-    expect(prev.prop('disabled')).toBeTruthy();
+    expect(prev2.prop("disabled")).toBeTruthy();
+    expect(prev.prop("disabled")).toBeTruthy();
   });
 
-  it('disallows navigating before dynamically set minDate', () => {
+  it("disallows navigating before dynamically set minDate", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -418,16 +418,16 @@ describe('Navigation', () => {
       minDate: new Date(2017, 0, 1),
     });
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const prev2 = arrows.at(0);
     const prev = arrows.at(1);
 
-    expect(prev2.prop('disabled')).toBeTruthy();
-    expect(prev.prop('disabled')).toBeTruthy();
+    expect(prev2.prop("disabled")).toBeTruthy();
+    expect(prev.prop("disabled")).toBeTruthy();
   });
 
-  it('disallows navigating after maxDate', () => {
+  it("disallows navigating after maxDate", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -436,16 +436,16 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const next = arrows.at(2);
     const next2 = arrows.at(3);
 
-    expect(next.prop('disabled')).toBeTruthy();
-    expect(next2.prop('disabled')).toBeTruthy();
+    expect(next.prop("disabled")).toBeTruthy();
+    expect(next2.prop("disabled")).toBeTruthy();
   });
 
-  it('does not disallow navigating to next month when maxDate is set to first day of the next month', () => {
+  it("does not disallow navigating to next month when maxDate is set to first day of the next month", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -454,16 +454,16 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const next = arrows.at(2);
     const next2 = arrows.at(3);
 
-    expect(next.prop('disabled')).toBeFalsy();
-    expect(next2.prop('disabled')).toBeTruthy();
+    expect(next.prop("disabled")).toBeFalsy();
+    expect(next2.prop("disabled")).toBeTruthy();
   });
 
-  it('does not disallow navigating to next year when maxDate is set to first day of the next year', () => {
+  it("does not disallow navigating to next year when maxDate is set to first day of the next year", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -472,16 +472,16 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const next = arrows.at(2);
     const next2 = arrows.at(3);
 
-    expect(next.prop('disabled')).toBeFalsy();
-    expect(next2.prop('disabled')).toBeFalsy();
+    expect(next.prop("disabled")).toBeFalsy();
+    expect(next2.prop("disabled")).toBeFalsy();
   });
 
-  it('disallows navigating after dynamically set maxDate', () => {
+  it("disallows navigating after dynamically set maxDate", () => {
     const component = shallow(
       <Navigation
         {...defaultProps}
@@ -493,16 +493,16 @@ describe('Navigation', () => {
       maxDate: new Date(2017, 0, 31),
     });
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const next = arrows.at(2);
     const next2 = arrows.at(3);
 
-    expect(next.prop('disabled')).toBeTruthy();
-    expect(next2.prop('disabled')).toBeTruthy();
+    expect(next.prop("disabled")).toBeTruthy();
+    expect(next2.prop("disabled")).toBeTruthy();
   });
 
-  it('disallows navigating before the year 0', () => {
+  it("disallows navigating before the year 0", () => {
     const activeStartDate = new Date();
     activeStartDate.setFullYear(0, 0, 1);
 
@@ -514,20 +514,20 @@ describe('Navigation', () => {
       />,
     );
 
-    const arrows = component.find('button.react-calendar__navigation__arrow');
+    const arrows = component.find("button.react-calendar__navigation__arrow");
 
     const prev2 = arrows.at(0);
     const prev = arrows.at(1);
 
-    expect(prev2.prop('disabled')).toBeTruthy();
-    expect(prev.prop('disabled')).toBeTruthy();
+    expect(prev2.prop("disabled")).toBeTruthy();
+    expect(prev.prop("disabled")).toBeTruthy();
   });
 
-  it('renders custom navigation label when given navigationLabel prop', () => {
+  it("renders custom navigation label when given navigationLabel prop", () => {
     const date = new Date(2017, 0, 1);
-    const label = 'Custom label';
-    const view = 'month';
-    const locale = 'de-DE';
+    const label = "Custom label";
+    const view = "month";
+    const locale = "de-DE";
 
     const navigationLabel = jest.fn().mockReturnValue(label);
 
@@ -541,72 +541,72 @@ describe('Navigation', () => {
       />,
     );
 
-    const drillUp = component.find('.react-calendar__navigation__label');
+    const drillUp = component.find(".react-calendar__navigation__label");
 
     expect(navigationLabel).toHaveBeenCalledWith({
       locale,
       date,
       view,
-      label: 'Januar 2017',
+      label: "Januar 2017",
     });
     expect(drillUp.text()).toBe(label);
   });
 
-  describe('formats navigation label properly', () => {
-    it('displays calendar with custom month year navigation label', () => {
+  describe("formats navigation label properly", () => {
+    it("displays calendar with custom month year navigation label", () => {
       const component = shallow(
         <Navigation
           {...defaultProps}
-          formatMonthYear={() => 'MonthYear'}
+          formatMonthYear={() => "MonthYear"}
           view="month"
         />,
       );
 
-      const navigationLabel = component.find('.react-calendar__navigation__label').first();
+      const navigationLabel = component.find(".react-calendar__navigation__label").first();
 
-      expect(navigationLabel.text()).toBe('MonthYear');
+      expect(navigationLabel.text()).toBe("MonthYear");
     });
 
-    it('displays calendar with custom year navigation label', () => {
+    it("displays calendar with custom year navigation label", () => {
       const component = shallow(
         <Navigation
           {...defaultProps}
-          formatYear={() => 'Year'}
+          formatYear={() => "Year"}
           view="year"
         />,
       );
 
-      const navigationLabel = component.find('.react-calendar__navigation__label').first();
+      const navigationLabel = component.find(".react-calendar__navigation__label").first();
 
-      expect(navigationLabel.text()).toBe('Year');
+      expect(navigationLabel.text()).toBe("Year");
     });
 
-    it('displays calendar with custom decade navigation label', () => {
+    it("displays calendar with custom decade navigation label", () => {
       const component = shallow(
         <Navigation
           {...defaultProps}
-          formatYear={() => 'Year'}
+          formatYear={() => "Year"}
           view="decade"
         />,
       );
 
-      const navigationLabel = component.find('.react-calendar__navigation__label').first();
+      const navigationLabel = component.find(".react-calendar__navigation__label").first();
 
-      expect(navigationLabel.text()).toBe('Year – Year');
+      expect(navigationLabel.text()).toBe("Year – Year");
     });
 
-    it('displays calendar with custom century navigation label', () => {
+    it("displays calendar with custom century navigation label", () => {
       const component = shallow(
         <Navigation
           {...defaultProps}
-          formatYear={() => 'Year'}
+          formatYear={() => "Year"}
           view="century"
         />,
       );
 
-      const navigationLabel = component.find('.react-calendar__navigation__label').first();
+      const navigationLabel = component.find(".react-calendar__navigation__label").first();
 
-      expect(navigationLabel.text()).toBe('Year – Year');
+      expect(navigationLabel.text()).toBe("Year – Year");
     });
   });
 });

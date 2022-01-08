@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   getYear,
   getMonth,
   getMonthStart,
-} from '@wojtekmaj/date-utils';
+} from "@wojtekmaj/date-utils";
 
-import Flex from '../Flex';
+import Flex from "../Flex";
 
-import { getDayOfWeek } from '../shared/dates';
-import { formatWeekday, formatShortWeekday as defaultFormatShortWeekday } from '../shared/dateFormatter';
-import { isCalendarType } from '../shared/propTypes';
+import { getDayOfWeek } from "../shared/dates";
+import { formatWeekday, formatShortWeekday as defaultFormatShortWeekday } from "../shared/dateFormatter";
+import { isCalendarType } from "../shared/propTypes";
 
-const className = 'react-calendar__month-view__weekdays';
+const className = "react-calendar__month-view__weekdays";
 
 export default function Weekdays(props) {
   const {
@@ -42,7 +42,7 @@ export default function Weekdays(props) {
         className={`${className}__weekday`}
       >
         <abbr aria-label={abbr} title={abbr}>
-          {formatShortWeekday(locale, weekdayDate).replace('.', '')}
+          {formatShortWeekday(locale, weekdayDate).replace(".", "")}
         </abbr>
       </div>,
     );

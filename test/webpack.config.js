@@ -1,25 +1,25 @@
-const path = require('path');
+const path = require("path");
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 const isDevelopment = !isProduction;
 
 module.exports = {
-  mode: isProduction ? 'production' : 'development',
+  mode: isProduction ? "production" : "development",
   bail: isProduction,
   context: path.join(__dirname),
   entry: {
-    src: './index.jsx',
+    src: "./index.jsx",
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash:8].js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[chunkhash:8].js",
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
@@ -28,10 +28,10 @@ module.exports = {
         exclude: /node_modules(?!\/react-calendar)/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              babelrcRoots: ['.', '../'],
-              plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
+              babelrcRoots: [".", "../"],
+              plugins: [isDevelopment && "react-refresh/babel"].filter(Boolean),
             },
           },
         ],
@@ -39,35 +39,35 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'less-loader',
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "less-loader",
         ],
       },
       {
         test: /\.css$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
         ],
       },
     ].filter(Boolean),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: "index.html",
     }),
     isProduction && new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash:8].css',
-      chunkFilename: '[name].[chunkhash:8].css',
+      filename: "[name].[chunkhash:8].css",
+      chunkFilename: "[name].[chunkhash:8].css",
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
   optimization: {
-    moduleIds: 'named',
+    moduleIds: "named",
   },
   stats: {
-    assetsSort: '!size',
+    assetsSort: "!size",
     entrypoints: false,
   },
   devServer: {

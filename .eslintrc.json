@@ -1,14 +1,31 @@
 {
   "extends": "wojtekmaj/react",
   "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "globalReturn": false
+    },
+    "requireConfigFile": false,
+    "babelOptions": {
+      "configFile": "./.babelrc"
+    }
+  },
   "rules": {
     "no-restricted-globals": "off"
   },
   "overrides": [
     {
-      "files": ["sample/**", "test/**"],
+      "files": ["sample/**", "test/**", "src/**"],
       "rules": {
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "react/no-unescaped-entities": "off",
+        "quotes": [
+          2,
+          "double",
+          { "avoidEscape": true, "allowTemplateLiterals": true }
+        ]
       }
     }
   ]

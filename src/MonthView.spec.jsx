@@ -1,16 +1,16 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
+import React from "react";
+import { mount, shallow } from "enzyme";
 
-import MonthView from './MonthView';
+import MonthView from "./MonthView";
 
-const { format } = new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+const { format } = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "long", year: "numeric" });
 
-describe('MonthView', () => {
+describe("MonthView", () => {
   const defaultProps = {
     activeStartDate: new Date(2017, 0, 1),
   };
 
-  it('renders proper view when given activeStartDate', () => {
+  it("renders proper view when given activeStartDate", () => {
     const activeStartDate = new Date(2017, 0, 1);
     const component = mount(
       <MonthView
@@ -20,14 +20,14 @@ describe('MonthView', () => {
       />,
     );
 
-    const firstDayTile = component.find('.react-calendar__tile').first();
-    const firstDayTileTimeAbbr = firstDayTile.find('abbr').prop('aria-label');
+    const firstDayTile = component.find(".react-calendar__tile").first();
+    const firstDayTileTimeAbbr = firstDayTile.find("abbr").prop("aria-label");
 
     expect(firstDayTileTimeAbbr).toBe(format(activeStartDate));
   });
 
-  it('applies tileClassName to its tiles when given a string', () => {
-    const tileClassName = 'testClassName';
+  it("applies tileClassName to its tiles when given a string", () => {
+    const tileClassName = "testClassName";
     const component = mount(
       <MonthView
         {...defaultProps}
@@ -36,17 +36,17 @@ describe('MonthView', () => {
       />,
     );
 
-    const firstDayTile = component.find('.react-calendar__tile').first();
-    const firstDayTileClassName = firstDayTile.prop('className');
+    const firstDayTile = component.find(".react-calendar__tile").first();
+    const firstDayTileClassName = firstDayTile.prop("className");
 
     expect(firstDayTileClassName.includes(tileClassName)).toBe(true);
   });
 
-  it('applies tileClassName to its tiles conditionally when given a function that returns a string', () => {
+  it("applies tileClassName to its tiles conditionally when given a function that returns a string", () => {
     const activeStartDate = new Date(2017, 0, 1);
     const tileClassNameFn = ({ date }) => {
       if (date.getTime() === activeStartDate.getTime()) {
-        return 'firstDayOfTheMonth';
+        return "firstDayOfTheMonth";
       }
 
       return null;
@@ -60,18 +60,18 @@ describe('MonthView', () => {
       />,
     );
 
-    const tiles = component.find('.react-calendar__tile');
+    const tiles = component.find(".react-calendar__tile");
 
     const firstDayTile = tiles.first();
-    const firstDayTileClassName = firstDayTile.prop('className');
+    const firstDayTileClassName = firstDayTile.prop("className");
     const secondDayTile = tiles.at(1);
-    const secondDayTileClassName = secondDayTile.prop('className');
+    const secondDayTileClassName = secondDayTile.prop("className");
 
-    expect(firstDayTileClassName.includes('firstDayOfTheMonth')).toBe(true);
-    expect(secondDayTileClassName.includes('firstDayOfTheMonth')).toBe(false);
+    expect(firstDayTileClassName.includes("firstDayOfTheMonth")).toBe(true);
+    expect(secondDayTileClassName.includes("firstDayOfTheMonth")).toBe(false);
   });
 
-  it('renders tileContent in its tiles when given a node', () => {
+  it("renders tileContent in its tiles when given a node", () => {
     const tileContent = (
       <div className="testContent" />
     );
@@ -83,15 +83,15 @@ describe('MonthView', () => {
       />,
     );
 
-    const tiles = component.find('.react-calendar__tile');
+    const tiles = component.find(".react-calendar__tile");
 
     const firstDayTile = tiles.first();
-    const firstDayTileContent = firstDayTile.find('.testContent');
+    const firstDayTileContent = firstDayTile.find(".testContent");
 
     expect(firstDayTileContent).toHaveLength(1);
   });
 
-  it('renders tileContent in its tiles conditionally when given a function that returns a node', () => {
+  it("renders tileContent in its tiles conditionally when given a function that returns a node", () => {
     const activeStartDate = new Date(2017, 0, 1);
     const tileContentFn = ({ date }) => {
       if (date.getTime() === activeStartDate.getTime()) {
@@ -112,28 +112,28 @@ describe('MonthView', () => {
       />,
     );
 
-    const tiles = component.find('.react-calendar__tile');
+    const tiles = component.find(".react-calendar__tile");
 
     const firstDayTile = tiles.first();
-    const firstDayTileContent = firstDayTile.find('.testContent');
+    const firstDayTileContent = firstDayTile.find(".testContent");
     const secondDayTile = tiles.at(1);
-    const secondDayTileContent = secondDayTile.find('.testContent');
+    const secondDayTileContent = secondDayTile.find(".testContent");
 
     expect(firstDayTileContent).toHaveLength(1);
     expect(secondDayTileContent).toHaveLength(0);
   });
 
-  it('does not render WeekNumbers component by default', () => {
+  it("does not render WeekNumbers component by default", () => {
     const component = mount(
       <MonthView
         {...defaultProps}
       />,
     );
 
-    expect(component.find('WeekNumbers')).toHaveLength(0);
+    expect(component.find("WeekNumbers")).toHaveLength(0);
   });
 
-  it('renders WeekNumbers component by given showWeekNumbers flag', () => {
+  it("renders WeekNumbers component by given showWeekNumbers flag", () => {
     const component = mount(
       <MonthView
         {...defaultProps}
@@ -141,11 +141,11 @@ describe('MonthView', () => {
       />,
     );
 
-    expect(component.find('WeekNumbers')).toHaveLength(1);
+    expect(component.find("WeekNumbers")).toHaveLength(1);
   });
 
-  it('passes calendarType to Weekdays component', () => {
-    const calendarType = 'ISO 8601';
+  it("passes calendarType to Weekdays component", () => {
+    const calendarType = "ISO 8601";
 
     const component = shallow(
       <MonthView
@@ -154,13 +154,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const weekdays = component.find('Weekdays');
+    const weekdays = component.find("Weekdays");
 
-    expect(weekdays.prop('calendarType')).toBe(calendarType);
+    expect(weekdays.prop("calendarType")).toBe(calendarType);
   });
 
-  it('passes derived calendarType to Weekdays component if calendarType is not given', () => {
-    const locale = 'en-US';
+  it("passes derived calendarType to Weekdays component if calendarType is not given", () => {
+    const locale = "en-US";
 
     const component = shallow(
       <MonthView
@@ -169,13 +169,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const weekdays = component.find('Weekdays');
+    const weekdays = component.find("Weekdays");
 
-    expect(weekdays.prop('calendarType')).toBe('US');
+    expect(weekdays.prop("calendarType")).toBe("US");
   });
 
-  it('passes formatShortWeekday flag to Weekdays component', () => {
-    const formatShortWeekday = () => 'Weekday';
+  it("passes formatShortWeekday flag to Weekdays component", () => {
+    const formatShortWeekday = () => "Weekday";
 
     const component = shallow(
       <MonthView
@@ -184,13 +184,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const weekdays = component.find('Weekdays');
+    const weekdays = component.find("Weekdays");
 
-    expect(weekdays.prop('formatShortWeekday')).toBe(formatShortWeekday);
+    expect(weekdays.prop("formatShortWeekday")).toBe(formatShortWeekday);
   });
 
-  it('passes calendarType to Days component', () => {
-    const calendarType = 'ISO 8601';
+  it("passes calendarType to Days component", () => {
+    const calendarType = "ISO 8601";
 
     const component = shallow(
       <MonthView
@@ -199,13 +199,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const days = component.find('Days');
+    const days = component.find("Days");
 
-    expect(days.prop('calendarType')).toBe(calendarType);
+    expect(days.prop("calendarType")).toBe(calendarType);
   });
 
-  it('passes derived calendarType to Days component if calendarType is not given', () => {
-    const locale = 'en-US';
+  it("passes derived calendarType to Days component if calendarType is not given", () => {
+    const locale = "en-US";
 
     const component = shallow(
       <MonthView
@@ -214,13 +214,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const days = component.find('Days');
+    const days = component.find("Days");
 
-    expect(days.prop('calendarType')).toBe('US');
+    expect(days.prop("calendarType")).toBe("US");
   });
 
-  it('passes formatDay flag to Days component', () => {
-    const formatDay = () => 'Day';
+  it("passes formatDay flag to Days component", () => {
+    const formatDay = () => "Day";
 
     const component = shallow(
       <MonthView
@@ -229,13 +229,13 @@ describe('MonthView', () => {
       />,
     );
 
-    const days = component.find('Days');
+    const days = component.find("Days");
 
-    expect(days.prop('formatDay')).toBe(formatDay);
+    expect(days.prop("formatDay")).toBe(formatDay);
   });
 
-  it('passes formatLongDate flag to Days component', () => {
-    const formatLongDate = () => 'Long date';
+  it("passes formatLongDate flag to Days component", () => {
+    const formatLongDate = () => "Long date";
 
     const component = shallow(
       <MonthView
@@ -244,8 +244,8 @@ describe('MonthView', () => {
       />,
     );
 
-    const days = component.find('Days');
+    const days = component.find("Days");
 
-    expect(days.prop('formatLongDate')).toBe(formatLongDate);
+    expect(days.prop("formatLongDate")).toBe(formatLongDate);
   });
 });

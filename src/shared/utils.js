@@ -1,4 +1,4 @@
-import { getRange } from './dates';
+import { getRange } from "./dates";
 
 /**
  * Returns a value no smaller than min and no larger than max.
@@ -68,7 +68,7 @@ function getRangeClassNames(valueRange, dateRange, baseClassName) {
 export function getTileClasses({
   value, valueType, date, dateType, hover,
 } = {}) {
-  const className = 'react-calendar__tile';
+  const className = "react-calendar__tile";
   const classes = [className];
 
   if (!date) {
@@ -76,7 +76,7 @@ export function getTileClasses({
   }
 
   if (!Array.isArray(date) && !dateType) {
-    throw new Error('getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.');
+    throw new Error("getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.");
   }
 
   const now = new Date();
@@ -91,7 +91,7 @@ export function getTileClasses({
   }
 
   if (!Array.isArray(value) && !valueType) {
-    throw new Error('getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.');
+    throw new Error("getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.");
   }
 
   const valueRange = Array.isArray(value) ? value : getRange(valueType, value);

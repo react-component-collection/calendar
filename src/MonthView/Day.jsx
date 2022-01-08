@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { getDayStart, getDayEnd } from '@wojtekmaj/date-utils';
+import React from "react";
+import PropTypes from "prop-types";
+import { getDayStart, getDayEnd } from "@wojtekmaj/date-utils";
 
-import Tile from '../Tile';
+import Tile from "../Tile";
 
-import { isWeekend } from '../shared/dates';
+import { isWeekend } from "../shared/dates";
 import {
   formatDay as defaultFormatDay,
   formatLongDate as defaultFormatLongDate,
-} from '../shared/dateFormatter';
-import { tileProps } from '../shared/propTypes';
+} from "../shared/dateFormatter";
+import { tileProps } from "../shared/propTypes";
 
-const className = 'react-calendar__month-view__days__day';
+const className = "react-calendar__month-view__days__day";
 
 export default function Day({
   formatDay = defaultFormatDay,

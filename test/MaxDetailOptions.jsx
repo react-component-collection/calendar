@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const allViews = ['century', 'decade', 'year', 'month'];
+const allViews = ["century", "decade", "year", "month"];
 
 function upperCaseFirstLetter(str) {
   return str.slice(0, 1).toUpperCase() + str.slice(1);

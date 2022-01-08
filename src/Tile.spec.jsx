@@ -1,27 +1,27 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import Tile from './Tile';
+import Tile from "./Tile";
 
-describe('<Tile /> component', () => {
+describe("<Tile /> component", () => {
   const defaultProps = {
     activeStartDate: new Date(2019, 0, 1),
-    children: '',
+    children: "",
     classes: [],
     date: new Date(2019, 0, 1),
     maxDateTransform: (date) => date,
     minDateTransform: (date) => date,
   };
 
-  it('renders button properly', () => {
+  it("renders button properly", () => {
     const component = shallow(
       <Tile {...defaultProps} />,
     );
 
-    expect(component.find('button')).toHaveLength(1);
+    expect(component.find("button")).toHaveLength(1);
   });
 
-  it('passes onClick to button', () => {
+  it("passes onClick to button", () => {
     const onClick = jest.fn();
 
     const component = shallow(
@@ -31,15 +31,15 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
-    button.simulate('click');
+    button.simulate("click");
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('passes classes to button properly', () => {
-    const classes = ['a', 'b', 'c'];
+  it("passes classes to button properly", () => {
+    const classes = ["a", "b", "c"];
 
     const component = shallow(
       <Tile
@@ -48,15 +48,15 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
     classes.forEach((className) => {
-      expect(button.prop('className')).toMatch(className);
+      expect(button.prop("className")).toMatch(className);
     });
   });
 
-  it('renders children properly', () => {
-    const children = 'Hello';
+  it("renders children properly", () => {
+    const children = "Hello";
 
     const component = shallow(
       <Tile {...defaultProps}>
@@ -67,18 +67,18 @@ describe('<Tile /> component', () => {
     expect(component.text()).toBe(children);
   });
 
-  it('does not render abbr by default', () => {
+  it("does not render abbr by default", () => {
     const component = shallow(
       <Tile {...defaultProps} />,
     );
 
-    expect(component.find('abbr')).toHaveLength(0);
+    expect(component.find("abbr")).toHaveLength(0);
   });
 
-  it('calls formatAbbr properly', () => {
+  it("calls formatAbbr properly", () => {
     const date = new Date(2019, 5, 1);
     const formatAbbr = jest.fn();
-    const locale = 'en-US';
+    const locale = "en-US";
 
     shallow(
       <Tile
@@ -93,9 +93,9 @@ describe('<Tile /> component', () => {
     expect(formatAbbr).toHaveBeenCalledWith(locale, date);
   });
 
-  it('renders abbr with children properly given formatAbbr', () => {
-    const children = 'Hello';
-    const ariaLabel = 'ariaLabel';
+  it("renders abbr with children properly given formatAbbr", () => {
+    const children = "Hello";
+    const ariaLabel = "ariaLabel";
     const formatAbbr = () => ariaLabel;
 
     const component = shallow(
@@ -107,18 +107,18 @@ describe('<Tile /> component', () => {
       </Tile>,
     );
 
-    const abbr = component.find('abbr');
+    const abbr = component.find("abbr");
 
     expect(abbr).toHaveLength(1);
     expect(abbr.text()).toBe(children);
-    expect(abbr.prop('aria-label')).toBe(ariaLabel);
+    expect(abbr.prop("aria-label")).toBe(ariaLabel);
   });
 
-  it('calls tileClassName properly', () => {
+  it("calls tileClassName properly", () => {
     const activeStartDate = new Date(2019, 5, 1);
     const date = new Date(2019, 5, 15);
     const tileClassName = jest.fn();
-    const view = 'month';
+    const view = "month";
 
     const component = shallow(
       <Tile
@@ -132,7 +132,7 @@ describe('<Tile /> component', () => {
 
     // Trigger any unrelated prop change
     component.setProps({
-      tileContent: 'a',
+      tileContent: "a",
     });
 
     expect(tileClassName).toHaveBeenCalledTimes(1);
@@ -143,8 +143,8 @@ describe('<Tile /> component', () => {
     });
   });
 
-  it('applies tileClassName to button properly given function', () => {
-    const className = 'className';
+  it("applies tileClassName to button properly given function", () => {
+    const className = "className";
     const tileClassName = () => className;
 
     const component = shallow(
@@ -154,13 +154,13 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
-    expect(button.prop('className')).toMatch(className);
+    expect(button.prop("className")).toMatch(className);
   });
 
-  it('applies tileClassName to button properly given string', () => {
-    const className = 'className';
+  it("applies tileClassName to button properly given string", () => {
+    const className = "className";
 
     const component = shallow(
       <Tile
@@ -169,16 +169,16 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
-    expect(button.prop('className')).toMatch(className);
+    expect(button.prop("className")).toMatch(className);
   });
 
-  it('calls tileContent properly', () => {
+  it("calls tileContent properly", () => {
     const activeStartDate = new Date(2019, 5, 1);
     const date = new Date(2019, 5, 15);
     const tileContent = jest.fn();
-    const view = 'month';
+    const view = "month";
 
     const component = shallow(
       <Tile
@@ -192,7 +192,7 @@ describe('<Tile /> component', () => {
 
     // Trigger any unrelated prop change
     component.setProps({
-      tileClassName: 'a',
+      tileClassName: "a",
     });
 
     expect(tileContent).toHaveBeenCalledTimes(1);
@@ -203,8 +203,8 @@ describe('<Tile /> component', () => {
     });
   });
 
-  it('applies tileContent to button properly given function', () => {
-    const content = 'content';
+  it("applies tileContent to button properly given function", () => {
+    const content = "content";
     const tileContent = () => content;
 
     const component = shallow(
@@ -214,13 +214,13 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
     expect(button.text()).toMatch(content);
   });
 
-  it('applies tileContent to button properly given string', () => {
-    const content = 'className';
+  it("applies tileContent to button properly given string", () => {
+    const content = "className";
 
     const component = shallow(
       <Tile
@@ -229,16 +229,16 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
     expect(button.text()).toMatch(content);
   });
 
-  it('calls tileDisabled properly', () => {
+  it("calls tileDisabled properly", () => {
     const activeStartDate = new Date(2019, 5, 1);
     const date = new Date(2019, 5, 15);
     const tileDisabled = jest.fn();
-    const view = 'month';
+    const view = "month";
 
     shallow(
       <Tile
@@ -258,7 +258,7 @@ describe('<Tile /> component', () => {
     });
   });
 
-  it('disables button properly given tileDisabled returning true', () => {
+  it("disables button properly given tileDisabled returning true", () => {
     const tileDisabled = () => true;
 
     const component = shallow(
@@ -268,8 +268,8 @@ describe('<Tile /> component', () => {
       />,
     );
 
-    const button = component.find('button');
+    const button = component.find("button");
 
-    expect(button.prop('disabled')).toBeTruthy();
+    expect(button.prop("disabled")).toBeTruthy();
   });
 });

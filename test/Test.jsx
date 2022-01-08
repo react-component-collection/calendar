@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from 'react';
-import Calendar from 'react-calendar/src';
-import 'react-calendar/src/Calendar.less';
+import React, { useCallback, useState } from "react";
+import Calendar from "react-calendar/src";
+import "react-calendar/src/Calendar.less";
 
-import DateBonduariesOptions from './DateBonduariesOptions';
-import MaxDetailOptions from './MaxDetailOptions';
-import MinDetailOptions from './MinDetailOptions';
-import LocaleOptions from './LocaleOptions';
-import ValueOptions from './ValueOptions';
-import ViewOptions from './ViewOptions';
+import DateBonduariesOptions from "./DateBonduariesOptions";
+import MaxDetailOptions from "./MaxDetailOptions";
+import MinDetailOptions from "./MinDetailOptions";
+import LocaleOptions from "./LocaleOptions";
+import ValueOptions from "./ValueOptions";
+import ViewOptions from "./ViewOptions";
 
-import { formatDate } from './shared/dateFormatter';
+import { formatDate } from "./shared/dateFormatter";
 
-import './Test.less';
+import "./Test.less";
 
 const now = new Date();
 
@@ -19,18 +19,18 @@ const now = new Date();
 
 const tileClassName = ({ date, view }) => {
   switch (view) {
-    case 'month':
+    case "month":
       return date.getDay() === 0 || date.getDay() === 6
-        ? 'red' : null;
-    case 'year':
+        ? "red" : null;
+    case "year":
       return date.getMonth() === 5 || date.getMonth() === 6
-        ? 'green' : null;
-    case 'decade':
+        ? "green" : null;
+    case "decade":
       return date.getFullYear() === 1991
-        ? 'pink' : null;
-    case 'century':
+        ? "pink" : null;
+    case "century":
       return date.getFullYear() === 1991
-        ? 'brown' : null;
+        ? "brown" : null;
     default:
       return null;
   }
@@ -38,17 +38,17 @@ const tileClassName = ({ date, view }) => {
 
 const tileContent = ({ date, view }) => {
   switch (view) {
-    case 'month':
+    case "month":
       return date.getDay() === 0
         ? (
           <p>
             <small>
-              {'It\'s Sunday!'}
+              It's Sunday!
             </small>
           </p>
         )
         : null;
-    case 'year':
+    case "year":
       return date.getMonth() === 5 || date.getMonth() === 6
         ? (
           <p>
@@ -58,22 +58,22 @@ const tileContent = ({ date, view }) => {
           </p>
         )
         : null;
-    case 'decade':
+    case "decade":
       return date.getFullYear() === 1991
         ? (
           <p>
             <small>
-              {'Developer\'s birthday!'}
+              Developer's birthday!
             </small>
           </p>
         )
         : null;
-    case 'century':
+    case "century":
       return date.getFullYear() === 1991
         ? (
           <p>
             <small>
-              {'The 90\'s'}
+              The 90's
             </small>
           </p>
         )
@@ -92,21 +92,21 @@ export default function Test() {
   );
   const [locale, setLocale] = useState(null);
   const [maxDate, setMaxDate] = useState(fifteenthOfNextMonth);
-  const [maxDetail, setMaxDetail] = useState('month');
+  const [maxDetail, setMaxDetail] = useState("month");
   const [minDate, setMinDate] = useState(nineteenNinetyFive);
-  const [minDetail, setMinDetail] = useState('century');
-  const [returnValue/* , setReturnValue */] = useState('start');
+  const [minDetail, setMinDetail] = useState("century");
+  const [returnValue/* , setReturnValue */] = useState("start");
   const [selectRange, setSelectRange] = useState(false);
   const [showDoubleView, setShowDoubleView] = useState(false);
   const [showFixedNumberOfWeeks, setShowFixedNumberOfWeeks] = useState(false);
   const [showNeighboringMonth, setShowNeighboringMonth] = useState(true);
   const [showWeekNumbers, setShowWeekNumbers] = useState(false);
   const [value, setValue] = useState(now);
-  const [view, setView] = useState('month');
+  const [view, setView] = useState("month");
 
   const onViewOrDateChange = useCallback(
     ({ activeStartDate: nextActiveStartDate, view: nextView }) => {
-      console.log('Changed view to', nextView, nextActiveStartDate);
+      console.log("Changed view to", nextView, nextActiveStartDate);
       setActiveStartDate(nextActiveStartDate);
       setView(nextView);
     }, [],
@@ -130,13 +130,13 @@ export default function Test() {
 
     return (
       <p>
-        {`Chosen date: ${value ? renderDate(value) : '(none)'}`}
+        {`Chosen date: ${value ? renderDate(value) : "(none)"}`}
       </p>
     );
   }
 
   const commonProps = {
-    className: 'myCustomCalendarClassName',
+    className: "myCustomCalendarClassName",
     locale,
     maxDate,
     maxDetail,
@@ -145,13 +145,13 @@ export default function Test() {
     onActiveStartDateChange: onViewOrDateChange,
     onChange: setValue,
     onClickWeekNumber: (weekNumber, date) => {
-      console.log('Clicked week number', weekNumber, date);
+      console.log("Clicked week number", weekNumber, date);
     },
     onDrillDown: ({ activeStartDate: nextActiveStartDate, view: nextView }) => {
-      console.log('Drilled down to', nextView, nextActiveStartDate);
+      console.log("Drilled down to", nextView, nextActiveStartDate);
     },
     onDrillUp: ({ activeStartDate: nextActiveStartDate, view: nextView }) => {
-      console.log('Drilled up to', nextView, nextActiveStartDate);
+      console.log("Drilled up to", nextView, nextActiveStartDate);
     },
     onViewChange: onViewOrDateChange,
     returnValue,
@@ -214,7 +214,7 @@ export default function Test() {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              console.error('Calendar triggered submitting the form.');
+              console.error("Calendar triggered submitting the form.");
               console.log(event);
             }}
           >

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
+import React, { useState } from "react";
+import Calendar from "rcc-calendar";
 
-import './Sample.less';
+import "./Sample.less";
 
 export default function Sample() {
   const [value, onChange] = useState(new Date());
@@ -13,11 +13,7 @@ export default function Sample() {
       </header>
       <div className="Sample__container">
         <main className="Sample__container__content">
-          <Calendar
-            onChange={onChange}
-            showWeekNumbers
-            value={value}
-          />
+          <Calendar onChange={onChange} showWeekNumbers value={value} />
         </main>
       </div>
     </div>

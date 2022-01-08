@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import mergeClassNames from 'merge-class-names';
+import React from "react";
+import PropTypes from "prop-types";
+import mergeClassNames from "merge-class-names";
 
-import Days from './MonthView/Days';
-import Weekdays from './MonthView/Weekdays';
-import WeekNumbers from './MonthView/WeekNumbers';
+import Days from "./MonthView/Days";
+import Weekdays from "./MonthView/Weekdays";
+import WeekNumbers from "./MonthView/WeekNumbers";
 
-import { CALENDAR_TYPES, CALENDAR_TYPE_LOCALES } from './shared/const';
-import { isCalendarType } from './shared/propTypes';
+import { CALENDAR_TYPES, CALENDAR_TYPE_LOCALES } from "./shared/const";
+import { isCalendarType } from "./shared/propTypes";
 
 function getCalendarTypeFromLocale(locale) {
   return (
@@ -68,23 +68,23 @@ export default function MonthView(props) {
     );
   }
 
-  const className = 'react-calendar__month-view';
+  const className = "react-calendar__month-view";
 
   return (
     <div
-      className={mergeClassNames(className, showWeekNumbers ? `${className}--weekNumbers` : '')}
+      className={mergeClassNames(className, showWeekNumbers ? `${className}--weekNumbers` : "")}
     >
       <div
         style={{
-          display: 'flex',
-          alignItems: 'flex-end',
+          display: "flex",
+          alignItems: "flex-end",
         }}
       >
         {renderWeekNumbers()}
         <div
           style={{
             flexGrow: 1,
-            width: '100%',
+            width: "100%",
           }}
         >
           {renderWeekdays()}

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function ViewOptions({
   setShowDoubleView,
@@ -75,7 +75,7 @@ export default function ViewOptions({
           type="checkbox"
         />
         <label htmlFor="showNeighboringMonth">
-          {'Show neighboring month\'s days'}
+          Show neighboring month's days
         </label>
       </div>
 

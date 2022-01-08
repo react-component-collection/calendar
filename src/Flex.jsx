@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function toPercent(num) {
   return `${num}%`;
@@ -19,9 +19,9 @@ export default function Flex({
     <div
       className={className}
       style={{
-        display: 'flex',
+        display: "flex",
         flexDirection: direction,
-        flexWrap: wrap ? 'wrap' : 'no-wrap',
+        flexWrap: wrap ? "wrap" : "no-wrap",
         ...style,
       }}
       {...otherProps}
@@ -35,7 +35,7 @@ export default function Flex({
               flexBasis: toPercent(100 / count),
               flexShrink: 0,
               flexGrow: 0,
-              overflow: 'hidden',
+              overflow: "hidden",
               marginLeft: offset && (index === 0) ? toPercent((100 * offset) / count) : null,
             },
           },

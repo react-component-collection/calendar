@@ -1,4 +1,4 @@
-import getUserLocale from 'get-user-locale';
+import getUserLocale from "get-user-locale";
 
 function getFormatter(options) {
   return (locale, date) => date.toLocaleString(locale || getUserLocale(), options);
@@ -22,6 +22,6 @@ function getSafeFormatter(options) {
   return (locale, date) => getFormatter(options)(locale, toSafeHour(date));
 }
 
-const formatDateOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
+const formatDateOptions = { day: "numeric", month: "numeric", year: "numeric" };
 
 export const formatDate = getSafeFormatter(formatDateOptions);

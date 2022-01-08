@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   getYear,
   getMonth,
   getDate,
   getDaysInMonth,
-} from '@wojtekmaj/date-utils';
+} from "@wojtekmaj/date-utils";
 
-import WeekNumber from './WeekNumber';
-import Flex from '../Flex';
+import WeekNumber from "./WeekNumber";
+import Flex from "../Flex";
 
 import {
   getBeginOfWeek,
   getDayOfWeek,
   getWeekNumber,
-} from '../shared/dates';
-import { isCalendarType } from '../shared/propTypes';
+} from "../shared/dates";
+import { isCalendarType } from "../shared/propTypes";
 
 export default function WeekNumbers(props) {
   const {
@@ -61,7 +61,7 @@ export default function WeekNumbers(props) {
       direction="column"
       onFocus={onMouseLeave}
       onMouseOver={onMouseLeave}
-      style={{ flexBasis: 'calc(100% * (1 / 8)', flexShrink: 0 }}
+      style={{ flexBasis: "calc(100% * (1 / 8)", flexShrink: 0 }}
     >
       {
         weekNumbers.map((weekNumber, weekIndex) => (

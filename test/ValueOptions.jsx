@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { getISOLocalDateTime } from '@wojtekmaj/date-utils';
+import React from "react";
+import PropTypes from "prop-types";
+import { getISOLocalDateTime } from "@wojtekmaj/date-utils";
 
-import { isValue } from './shared/propTypes';
+import { isValue } from "./shared/propTypes";
 
 export default function ValueOptions({
   selectRange,
@@ -69,7 +69,7 @@ export default function ValueOptions({
           id="startDate"
           onChange={onStartChange}
           type="datetime-local"
-          value={startDate ? getISOLocalDateTime(startDate) : ''}
+          value={startDate ? getISOLocalDateTime(startDate) : ""}
         />
         &nbsp;
         <button
@@ -79,7 +79,7 @@ export default function ValueOptions({
           Clear to null
         </button>
         <button
-          onClick={() => setStartValue('')}
+          onClick={() => setStartValue("")}
           type="button"
         >
           Clear to empty string
@@ -94,7 +94,7 @@ export default function ValueOptions({
           id="endDate"
           onChange={onEndChange}
           type="datetime-local"
-          value={endDate ? getISOLocalDateTime(endDate) : ''}
+          value={endDate ? getISOLocalDateTime(endDate) : ""}
         />
         &nbsp;
         <button
@@ -104,7 +104,7 @@ export default function ValueOptions({
           Clear to null
         </button>
         <button
-          onClick={() => setEndValue('')}
+          onClick={() => setEndValue("")}
           type="button"
         >
           Clear to empty string

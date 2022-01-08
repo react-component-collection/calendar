@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import mergeClassNames from 'merge-class-names';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import mergeClassNames from "merge-class-names";
 
-import Navigation from './Calendar/Navigation';
-import CenturyView from './CenturyView';
-import DecadeView from './DecadeView';
-import YearView from './YearView';
-import MonthView from './MonthView';
+import Navigation from "./Calendar/Navigation";
+import CenturyView from "./CenturyView";
+import DecadeView from "./DecadeView";
+import YearView from "./YearView";
+import MonthView from "./MonthView";
 
 import {
   getBegin, getBeginNext, getEnd, getValueRange,
-} from './shared/dates';
+} from "./shared/dates";
 import {
   isCalendarType, isClassName, isMaxDate, isMinDate, isRef, isValue, isView,
-} from './shared/propTypes';
-import { between } from './shared/utils';
+} from "./shared/propTypes";
+import { between } from "./shared/utils";
 
 const defaultMinDate = new Date();
 defaultMinDate.setFullYear(1, 0, 1);
 defaultMinDate.setHours(0, 0, 0, 0);
 const defaultMaxDate = new Date(8.64e15);
 
-const baseClassName = 'react-calendar';
-const allViews = ['century', 'decade', 'year', 'month'];
-const allValueTypes = [...allViews.slice(1), 'day'];
+const baseClassName = "react-calendar";
+const allViews = ["century", "decade", "year", "month"];
+const allValueTypes = [...allViews.slice(1), "day"];
 
 function toDate(value) {
   if (value instanceof Date) {
@@ -245,10 +245,10 @@ export default class Calendar extends Component {
 
     const processFunction = (() => {
       switch (returnValue) {
-        case 'start': return getDetailValueFrom;
-        case 'end': return getDetailValueTo;
-        case 'range': return getDetailValueArray;
-        default: throw new Error('Invalid returnValue.');
+        case "start": return getDetailValueFrom;
+        case "end": return getDetailValueTo;
+        case "range": return getDetailValueArray;
+        default: throw new Error("Invalid returnValue.");
       }
     })();
 
@@ -301,15 +301,15 @@ export default class Calendar extends Component {
         );
       }
 
-      if (shouldUpdate('activeStartDate')) {
+      if (shouldUpdate("activeStartDate")) {
         if (onActiveStartDateChange) onActiveStartDateChange(args);
       }
 
-      if (shouldUpdate('view')) {
+      if (shouldUpdate("view")) {
         if (onViewChange) onViewChange(args);
       }
 
-      if (shouldUpdate('value')) {
+      if (shouldUpdate("value")) {
         if (onChange) {
           if (selectRange) {
             const isSingleValue = getIsSingleValue(nextState.value);
@@ -352,7 +352,7 @@ export default class Calendar extends Component {
     const nextView = views[views.indexOf(view) + 1];
 
     this.setStateAndCallCallbacks({
-      action: 'drillDown',
+      action: "drillDown",
       activeStartDate: nextActiveStartDate,
       view: nextView,
     }, undefined, onDrillDown);
@@ -370,7 +370,7 @@ export default class Calendar extends Component {
     const nextActiveStartDate = getBegin(nextView, activeStartDate);
 
     this.setStateAndCallCallbacks({
-      action: 'drillUp',
+      action: "drillUp",
       activeStartDate: nextActiveStartDate,
       view: nextView,
     }, undefined, onDrillUp);
@@ -406,7 +406,7 @@ export default class Calendar extends Component {
     event.persist();
 
     this.setStateAndCallCallbacks({
-      action: 'onChange',
+      action: "onChange",
       activeStartDate: nextActiveStartDate,
       value: nextValue,
     }, event);
@@ -423,13 +423,13 @@ export default class Calendar extends Component {
 
     const callback = (() => {
       switch (view) {
-        case 'century':
+        case "century":
           return onClickDecade;
-        case 'decade':
+        case "decade":
           return onClickYear;
-        case 'year':
+        case "year":
           return onClickMonth;
-        case 'month':
+        case "month":
           return onClickDay;
         default:
           throw new Error(`Invalid view: ${view}.`);
@@ -497,7 +497,7 @@ export default class Calendar extends Component {
     };
 
     switch (view) {
-      case 'century': {
+      case "century": {
         const { formatYear } = this.props;
 
         return (
@@ -507,7 +507,7 @@ export default class Calendar extends Component {
           />
         );
       }
-      case 'decade': {
+      case "decade": {
         const { formatYear } = this.props;
 
         return (
@@ -517,7 +517,7 @@ export default class Calendar extends Component {
           />
         );
       }
-      case 'year': {
+      case "year": {
         const { formatMonth, formatMonthYear } = this.props;
 
         return (
@@ -528,7 +528,7 @@ export default class Calendar extends Component {
           />
         );
       }
-      case 'month': {
+      case "month": {
         const {
           formatDay,
           formatLongDate,
@@ -653,10 +653,10 @@ export default class Calendar extends Component {
 
 Calendar.defaultProps = {
   maxDate: defaultMaxDate,
-  maxDetail: 'month',
+  maxDetail: "month",
   minDate: defaultMinDate,
-  minDetail: 'century',
-  returnValue: 'start',
+  minDetail: "century",
+  returnValue: "start",
   showNavigation: true,
   showNeighboringMonth: true,
 };
@@ -688,7 +688,7 @@ Calendar.propTypes = {
   minDate: isMinDate,
   minDetail: PropTypes.oneOf(allViews),
   navigationAriaLabel: PropTypes.string,
-  navigationAriaLive: PropTypes.oneOf(['off', 'polite', 'assertive']),
+  navigationAriaLive: PropTypes.oneOf(["off", "polite", "assertive"]),
   navigationLabel: PropTypes.func,
   next2AriaLabel: PropTypes.string,
   next2Label: PropTypes.node,
@@ -708,7 +708,7 @@ Calendar.propTypes = {
   prev2Label: PropTypes.node,
   prevAriaLabel: PropTypes.string,
   prevLabel: PropTypes.node,
-  returnValue: PropTypes.oneOf(['start', 'end', 'range']),
+  returnValue: PropTypes.oneOf(["start", "end", "range"]),
   selectRange: PropTypes.bool,
   showDoubleView: PropTypes.bool,
   showFixedNumberOfWeeks: PropTypes.bool,

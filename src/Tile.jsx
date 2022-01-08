@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import mergeClassNames from 'merge-class-names';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import mergeClassNames from "merge-class-names";
 
-import { tileProps } from './shared/propTypes';
+import { tileProps } from "./shared/propTypes";
 
 function getValue(nextProps, prop) {
   const { activeStartDate, date, view } = nextProps;
 
-  return typeof prop === 'function'
+  return typeof prop === "function"
     ? prop({ activeStartDate, date, view })
     : prop;
 }

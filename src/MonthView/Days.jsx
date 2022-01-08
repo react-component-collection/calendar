@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   getYear,
   getMonth,
   getDaysInMonth,
-} from '@wojtekmaj/date-utils';
+} from "@wojtekmaj/date-utils";
 
-import TileGroup from '../TileGroup';
-import Day from './Day';
+import TileGroup from "../TileGroup";
+import Day from "./Day";
 
-import { getDayOfWeek } from '../shared/dates';
-import { isCalendarType, tileGroupProps } from '../shared/propTypes';
+import { getDayOfWeek } from "../shared/dates";
+import { isCalendarType, tileGroupProps } from "../shared/propTypes";
 
 export default function Days(props) {
   const {
