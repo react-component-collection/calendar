@@ -1,7 +1,7 @@
 {
   "name": "rcc-calendar",
-  "version": "3.5.0",
-  "description": "Ultimate calendar for your React app.",
+  "version": "0.0.1",
+  "description": "a react Calendar of the React Component Collection.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
   "source": "src/index.js",
@@ -76,15 +76,15 @@
     "@wojtekmaj/date-utils": "^1.0.2",
     "get-user-locale": "^1.2.0",
     "merge-class-names": "^1.1.1",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.0",
     "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.16.5",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
-    "babel-eslint": "^10.0.0",
     "enzyme": "^3.10.0",
     "eslint": "~7.19.0",
     "eslint-config-wojtekmaj": "^0.5.0",
@@ -109,8 +109,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wojtekmaj/react-calendar.git"
-  },
-  "funding": "https://github.com/wojtekmaj/react-calendar?sponsor=1",
-  "packageManager": "yarn@3.1.1"
+    "url": "https://github.com/react-component-collection/calendar.git"
+  }
 }
