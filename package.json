@@ -27,7 +27,7 @@
     "jest": "jest",
     "lint": "eslint sample/ src/ test/ --ext .jsx,.js --fix",
     "prepack": "yarn clean && yarn build",
-    "publish": "yarn prepack && npm publish",
+    "pub": "yarn prepack && npm publish",
     "test": "yarn lint && yarn jest"
   },
   "keywords": [
@@ -80,5 +80,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/react-component-collection/calendar.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://npmjs.com/"
   }
 }
