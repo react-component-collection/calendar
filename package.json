@@ -37,40 +37,9 @@
     "react"
   ],
   "author": {
-    "name": "Wojciech Maj",
-    "email": "kontakt@wojtekmaj.pl"
+    "name": "Yumin Gui",
+    "email": "yumindev@gmail.com"
   },
-  "contributors": [
-    {
-      "name": "Alberto Carreras"
-    },
-    {
-      "name": "Andriy Kuzyk"
-    },
-    {
-      "name": "Baldur Árnason"
-    },
-    {
-      "name": "Jack Willis-Craig"
-    },
-    {
-      "name": "JamieEgeberg"
-    },
-    {
-      "name": "Justin Davis"
-    },
-    {
-      "name": "Kevin Kipp",
-      "email": "kevin.kipp@gmail.com"
-    },
-    {
-      "name": "Ritesh Kumar",
-      "email": "rkritesh078@gmail.com"
-    },
-    {
-      "name": "Sergi Meseguer"
-    }
-  ],
   "license": "MIT",
   "dependencies": {
     "@wojtekmaj/date-utils": "^1.0.2",
