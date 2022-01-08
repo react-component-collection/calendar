@@ -82,7 +82,6 @@
     "url": "https://github.com/react-component-collection/calendar.git"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npmjs.com/"
+    "access": "public"
   }
 }
