@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Calendar from "rcc-calendar";
+import Calendar from "@reactguru/calendar";
 
 import "./Sample.less";
 

@@ -1,7 +1,7 @@
 {
-  "name": "rcc-calendar",
+  "name": "@reactguru/calendar",
   "version": "0.0.1",
-  "description": "a react Calendar of the React Component Collection.",
+  "description": "a react Calendar of the React Component Collection",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
   "source": "src/index.js",
